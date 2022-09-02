@@ -1,10 +1,20 @@
+import Category from "../models/Category";
 import Product from "../models/Product"
+import Type from "../models/Type";
 
 export const createProduct = async(req,res) => {
     
-    const {name,category,price,quantity} = req.body
+    const {name,category,type,price,quantity} = req.body
 
-    const newProduct = new Product({name,category,price,quantity});
+    const categoryFound = await Category.find({ name: { $in: category } });
+    const typesFound = await Type.find({ name: { $in: type } });
+
+    const newProduct = new Product({
+        name,
+        category: categoryFound.map((category) => category.name),
+        type: typesFound.map((type) => type.name),
+        price,
+        quantity});
 
     const productSaved = await newProduct.save()
 
