@@ -25,7 +25,7 @@ export const verifyToken = async (req,res,next) =>{
 export const isDealer = async (req, res, next) => {
     try {
       const user = await User.findById(req.userId);
-      const roles = await Role.find({ _id: { $in: user.roles } });
+      const roles = await Role.find({ _id: { $in: user.id_rol } });
   
       for (let i = 0; i < roles.length; i++) {
         if (roles[i].name === "dealer") {
@@ -44,7 +44,7 @@ export const isDealer = async (req, res, next) => {
   export const isAdmin = async (req, res, next) => {
     try {
       const user = await User.findById(req.userId);
-      const roles = await Role.find({ _id: { $in: user.roles } });
+      const roles = await Role.find({ _id: { $in: user.id_rol } });
   
       for (let i = 0; i < roles.length; i++) {
         if (roles[i].name === "admin") {
@@ -63,7 +63,7 @@ export const isDealer = async (req, res, next) => {
 export const isSecret = async (req,res,next) =>{
     try {
         const user = await User.findById(req.userId);
-        const roles = await Role.find({ _id: { $in: user.roles } });
+        const roles = await Role.find({ _id: { $in: user.id_rol } });
     
         for (let i = 0; i < roles.length; i++) {
           if (roles[i].name === "secretary") {

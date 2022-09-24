@@ -5,16 +5,6 @@ const userSchema = new Schema(
     name: {
       type: String
     },
-    types: [
-      {
-        ref: "Type",
-        type: Schema.Types.String,
-      },
-    ],
-  },
-  {
-    timestamps: true,
-    versionKey: false,
   }
 );
 
