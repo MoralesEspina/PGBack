@@ -26,6 +26,14 @@ export const getClientByID = async (req,res) => {
 
 }
 
+export const getClientByPhone = async (req,res) => {
+
+    const client = await Client.findById(req.params.phoneNumber)
+
+    res.status(200).json(client)
+
+}
+
 export const updateClientByID = async (req,res) => {
     const updatedClient = await Client.findByIdAndUpdate(req.params.clientID, req.body, {
         new:true

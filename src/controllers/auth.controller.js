@@ -32,7 +32,7 @@ export const signIn = async (req, res) => {
   try {
     const userFound = await User.findOne({
       username: req.body.username,
-    }).populate("roles");
+    }).populate("id_rol");
 
     console.log(req.body.username);
 
@@ -53,7 +53,7 @@ export const signIn = async (req, res) => {
       expiresIn: 86400,
     });
 
-    res.json({ token });
+    res.json({ token, userFound });
   } catch (error) {
     console.log(error);
   }
