@@ -21,7 +21,11 @@
     "mongoose": "^6.3.3",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/node": "^7.17.10",
+    "@babel/preset-env": "^7.17.10"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
