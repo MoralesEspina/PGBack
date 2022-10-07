@@ -12,9 +12,10 @@ import rolsRoutes from './routes/rols.routes'
 
 var cors = require('cors')
 const app = express()
+const helmet = require('helmet');
 createRols();
 
-
+app.use(helmet.frameguard({ action: 'SAMEORIGIN' }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors())
